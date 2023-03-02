@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  admin:
+    container_name: admin_app
+    command: yarn admin:start
+    stdin_open: true
+    tty: true
+    expose:
+      - 3030
+    ports:
+      - "3030:3030"
+    build:
+      dockerfile: Dockerfile
+      context: ./config/admin/
+    volumes:
+      - "./packages/admin:/admin"
